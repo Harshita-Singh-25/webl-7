@@ -1,47 +1,180 @@
-form {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* General Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fff8f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 500px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+/* Title */
+.title {
+  font-size: 28px;
+  color: #e63946;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+/* Form Styling */
+.dish-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+
+.form-group {
+  text-align: left;
+}
+
+label {
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: #e63946;
+  outline: none;
+}
+
+button {
+  padding: 12px;
+  background: linear-gradient(135deg, #e63946, #ff6f61);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #d63031, #ff8c66);
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Error Message */
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Menu Section */
+.menu-title {
+  margin-top: 25px;
+  font-size: 22px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Dish List */
+.dish-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.dish-item {
+  background: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dish-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.dish-details {
+  text-align: left;
+  flex: 1;
+}
+
+.dish-details strong {
+  font-size: 18px;
+  color: #e63946;
+}
+
+.dish-details p {
+  font-size: 14px;
+  color: #666;
+  margin: 5px 0;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+
+.total-price {
+    margin-top: 15px;
+    font-size: 22px;
+    color: #2d6a4f;
+    font-weight: 600;
   }
   
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input, textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    padding: 10px 15px;
-    background-color: #007bff;
+  /* Remove Button Styling */
+  .remove-btn {
+    background: #ff4d4d;
     color: white;
     border: none;
-    border-radius: 4px;
+    padding: 8px;
+    border-radius: 50%;
     cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s ease;
   }
   
-  button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  .remove-btn:hover {
+    background: #d63031;
+    transform: scale(1.1);
   }
   

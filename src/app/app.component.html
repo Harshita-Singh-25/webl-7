@@ -1,28 +1,42 @@
-<h1>Add New Item</h1>
-<form [formGroup]="itemForm" (ngSubmit)="addItem()">
-  <div>
-    <label for="title">Title:</label>
-    <input id="title" formControlName="title" />
-    <div *ngIf="itemForm.get('title')?.invalid && itemForm.get('title')?.touched">
-      Title is required.
+<div class="container">
+  <h2 class="title">🍽️ Fancy Restaurant Menu</h2>
+
+  <!-- Form to Add Dish -->
+  <form [formGroup]="itemForm" (ngSubmit)="addItem()" class="dish-form">
+    <div class="form-group">
+      <label>Dish Name</label>
+      <input type="text" formControlName="title" placeholder="Enter dish name">
+      <div class="error" *ngIf="itemForm.get('title')?.invalid && itemForm.get('title')?.touched">Dish name is required</div>
     </div>
-  </div>
 
-  <div>
-    <label for="description">Description:</label>
-    <textarea id="description" formControlName="description"></textarea>
-    <div *ngIf="itemForm.get('description')?.invalid && itemForm.get('description')?.touched">
-      Description is required.
+    <div class="form-group">
+      <label>Description</label>
+      <textarea formControlName="description" placeholder="Enter description"></textarea>
+      <div class="error" *ngIf="itemForm.get('description')?.invalid && itemForm.get('description')?.touched">Description is required</div>
     </div>
-  </div>
 
-  <button type="submit" [disabled]="itemForm.invalid">Add Item</button>
-</form>
+    <div class="form-group">
+      <label>Price (₹)</label>
+      <input type="number" formControlName="price" placeholder="Enter price">
+      <div class="error" *ngIf="itemForm.get('price')?.invalid && itemForm.get('price')?.touched">Enter a valid price</div>
+    </div>
 
-<h2>Item List</h2>
-<ul>
-  <li *ngFor="let item of items">
-    <strong>{{ item.title }}</strong>
-    <p>{{ item.description }}</p>
-  </li>
-</ul>
+    <button type="submit" [disabled]="itemForm.invalid">➕ Add Dish</button>
+  </form>
+
+  <!-- Dish List -->
+  <h3 class="menu-title">🍛 Menu</h3>
+  <ul class="dish-list">
+    <li class="dish-item" *ngFor="let item of items; let i = index">
+      <div class="dish-details">
+        <strong>{{ item.title }}</strong>
+        <p>{{ item.description }}</p>
+        <span class="price">₹{{ item.price }}</span>
+      </div>
+      <button class="remove-btn" (click)="removeItem(i)">❌</button>
+    </li>
+  </ul>
+
+  <!-- Total Price Display -->
+  <h3 class="total-price">💰 Total Price: ₹{{ totalPrice }}</h3>
+</div>
